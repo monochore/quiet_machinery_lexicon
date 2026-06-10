@@ -1,9 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiet Machinery | System Architecture Blueprint</title>
+    <title>Quiet Machinery | Lexicon</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Roboto+Mono:wght@200;400&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -11,7 +12,7 @@
             --text: #ffffff; 
             --border: #1a1a1a;
             --asperitas: #D4A373; /* Oxidized Sulphur */
-            --orogen: #7B2C2C;    /* Iron Oxide */
+            --karst: #7B2C2C;     /* Iron Oxide */
             --kamen: #5E6472;     /* Cold Slate */
             --mnemosyne: #83938E; /* Weathered Mortar */
         }
@@ -26,14 +27,13 @@
         }
 
         header {
-            padding: 60px 20px 30px;
+            padding: 60px 20px 20px;
             border-bottom: 1px solid var(--border);
             max-width: 800px;
             margin: 0 auto;
         }
 
-        h1 { font-size: 3rem; text-transform: uppercase; letter-spacing: 10px; margin: 0; line-height: 1; }
-        .master-subtitle { font-size: 0.8rem; opacity: 0.5; font-family: 'Roboto Mono', monospace; margin-top: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        h1 { font-size: 3.5rem; text-transform: uppercase; letter-spacing: 12px; margin: 0; line-height: 1; }
 
         .blueprint-container {
             max-width: 800px;
@@ -75,7 +75,7 @@
             right: 20px; 
         }
         
-        .engine-heading { font-size: 2.2rem; margin: 0; letter-spacing: 6px; text-transform: uppercase; line-height: 1; }
+        .engine-heading { font-size: 2.5rem; margin: 0; letter-spacing: 6px; text-transform: uppercase; line-height: 1; }
         .poetry-quote { font-style: italic; font-weight: 300; font-size: 1.1rem; margin: 10px 0 0; line-height: 1.3; opacity: 0.9; }
 
         .environmental-context {
@@ -101,7 +101,7 @@
             display: block; 
         }
 
-        /* --- EXPLICIT LINEAR PARAMETER LIST --- */
+        /* --- SPECIFICATION LIST --- */
         .blueprint-spec {
             font-family: 'Roboto Mono', monospace;
             margin-top: 20px;
@@ -160,7 +160,6 @@
 
 <header>
     <h1>QUIET MACHINERY</h1>
-    <div class="master-subtitle">System Architecture Blueprint // Mobile Specifications</div>
 </header>
 
 <main class="blueprint-container">
@@ -184,7 +183,7 @@
 
         <div class="blueprint-spec">
             <div class="section-block">
-                <span class="section-tag" style="color: var(--asperitas);">I. SOURCE (Ingestion & Capture)</span>
+                <span class="section-tag" style="color: var(--asperitas);">SOURCE (Ingestion & Capture)</span>
                 <div class="param-row">
                     <span class="param-name">Sublimate</span>
                     <span class="param-desc">Strips hard transients with 1.2-second volume swells, softening the incoming attack.</span>
@@ -200,7 +199,7 @@
             </div>
 
             <div class="section-block">
-                <span class="section-tag" style="color: var(--asperitas);">II. WEATHERING (Degradation & Friction)</span>
+                <span class="section-tag" style="color: var(--asperitas);">WEATHERING (Degradation & Friction)</span>
                 <div class="param-row">
                     <span class="param-name">Patina</span>
                     <span class="param-desc">Dictates high-frequency signal loss and introduces heavy analog distortion (pushed up to 9.0x drive), causing frozen audio to progressively darken and saturate with each repetition.</span>
@@ -216,7 +215,7 @@
             </div>
 
             <div class="section-block">
-                <span class="section-tag" style="color: var(--asperitas);">III. THE DEEP (Space & Time)</span>
+                <span class="section-tag" style="color: var(--asperitas);">THE DEEP (Space & Time)</span>
                 <div class="param-row">
                     <span class="param-name">Alembic</span>
                     <span class="param-desc">Controls a hard-capped infinite reverb tank, washing the signal into an impenetrable fog.</span>
@@ -236,7 +235,7 @@
             </div>
 
             <div class="section-block">
-                <span class="section-tag" style="color: var(--asperitas);">IV. MACROS (Autonomous Sabotage)</span>
+                <span class="section-tag" style="color: var(--asperitas);">MACROS (Autonomous Sabotage)</span>
                 <div class="param-row">
                     <span class="param-name">Ouroboros</span>
                     <span class="param-desc">Routes 40% of the spatial effect back into the weathering system, forcing the machine to endlessly eat its own tail.</span>
@@ -245,20 +244,16 @@
                     <span class="param-name">Entropy</span>
                     <span class="param-desc">Utilizes a bipolar random voltage to actively modulate Thicket, Transmute, and Sway without user input, ensuring the environment remains unpredictable and organically shifting.</span>
                 </div>
-                <div class="param-row">
-                    <span class="param-name">Veil</span>
-                    <span class="param-desc">Global macro attenuation parameter mapping attenuation layers over weathering filters.</span>
-                </div>
             </div>
         </div>
     </section>
 
     <section class="engine-section">
         <div class="hero-art">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/John_Martin_-_The_Great_Day_of_His_Wrath_-_Google_Art_Project.jpg" alt="Orogen Art">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/John_Martin_-_The_Great_Day_of_His_Wrath_-_Google_Art_Project.jpg" alt="Karst Art">
             <div class="poetry-box">
-                <h2 class="engine-heading" style="color: var(--orogen);">II. OROGEN</h2>
-                <div class="poetry-quote">"Rhythm is born from friction. Orogen forces four asynchronous plates to grind against one another in the dark."</div>
+                <h2 class="engine-heading" style="color: var(--karst);">II. KARST</h2>
+                <div class="poetry-quote">"Rhythm is born from friction. Karst forces four asynchronous plates to grind against one another in the dark."</div>
             </div>
         </div>
 
@@ -267,12 +262,12 @@
         </div>
 
         <div class="faceplate-wrap">
-            <img src="karst_face.png" alt="Orogen Front Panel">
+            <img src="karst_face.png" alt="Karst Front Panel">
         </div>
 
         <div class="blueprint-spec">
             <div class="section-block">
-                <span class="section-tag" style="color: var(--orogen);">MOTORS (Asynchronous Drive)</span>
+                <span class="section-tag" style="color: var(--karst);">MOTORS (Asynchronous Drive)</span>
                 <div class="param-row">
                     <span class="param-name">Strata</span>
                     <span class="param-desc">Scales the base frequency of the rhythmic generation.</span>
@@ -288,35 +283,27 @@
             </div>
 
             <div class="section-block">
-                <span class="section-tag" style="color: var(--orogen);">MATERIAL (Physicality & Tone - Mantle, Shadow, Flint, Apex)</span>
+                <span class="section-tag" style="color: var(--karst);">MATERIAL (Physicality & Tone)</span>
                 <div class="param-row">
-                    <span class="param-name">Mass (Per Voice)</span>
+                    <span class="param-name">Mass (Per Voice: Mantle, Shadow, Flint, Apex)</span>
                     <span class="param-desc">Controls the fundamental weight and sub-frequency using sharp exponential curves.</span>
                 </div>
                 <div class="param-row">
-                    <span class="param-name">Matter (Per Voice)</span>
+                    <span class="param-name">Matter (Per Voice: Mantle, Shadow, Flint, Apex)</span>
                     <span class="param-desc">Dictates the physical decay time and introduces sharp metallic resonance.</span>
                 </div>
                 <div class="param-row">
-                    <span class="param-name">Div (Per Voice)</span>
-                    <span class="param-desc">Rhythmic division offset determining structural clock scaling across the selected voice.</span>
-                </div>
-                <div class="param-row">
-                    <span class="param-name">Fluid (Per Voice)</span>
-                    <span class="param-desc">Overrides the percussive triggers entirely, forcing sharp strikes into unending, sustained drone states.</span>
-                </div>
-                <div class="param-row">
-                    <span class="param-name">Slip (Per Voice)</span>
+                    <span class="param-name">Slip (Per Voice: Mantle, Shadow, Flint, Apex)</span>
                     <span class="param-desc">Allows for manual, unstepped offset phase-shifting.</span>
                 </div>
                 <div class="param-row">
-                    <span class="param-name">Vol (Per Voice)</span>
-                    <span class="param-desc">Attenuates individual amplitude metrics across matching seismic voice paths.</span>
+                    <span class="param-name">Fluid (Per Voice: Mantle, Shadow, Flint, Apex)</span>
+                    <span class="param-desc">Overrides the percussive triggers entirely, forcing sharp strikes into unending, sustained drone states.</span>
                 </div>
             </div>
 
             <div class="section-block">
-                <span class="section-tag" style="color: var(--orogen);">FX/VOID (Atmosphere & Absence)</span>
+                <span class="section-tag" style="color: var(--karst);">FX/VOID (Atmosphere & Absence)</span>
                 <div class="param-row">
                     <span class="param-name">Bake</span>
                     <span class="param-desc">Applies a non-linear analog warmth and hard limiting to the sum of the voices, gluing the tectonic strikes together.</span>
@@ -343,7 +330,7 @@
         </div>
 
         <div class="environmental-context">
-            An autonomous physical modeling ecosystem designed to replace the sterile safety of the sequencer with the brutal, shifting reality of the acoustic stopwatch and shattered stone. It does not speak MIDI, and it refuses the sterile safety of the sequencer. It understands only gravity, friction, and structural ruin. Two distinct lithic waveguides ring and grind against one another, struck by stochastic cascades of falling dust. It forces the composer into a difficult duet with a living material, replacing the digital clock with the unpredictable, heavy momentum of shattered stone.
+            An autonomous physical modelling ecosystem designed to replace the sterile safety of the sequencer with the brutal, shifting reality of the acoustic stopwatch and shattered stone. It does not speak MIDI, and it refuses the sterile safety of the sequencer. It understands only gravity, friction, and structural ruin. Two distinct lithic waveguides ring and grind against one another, struck by stochastic cascades of falling dust. It forces the composer into a difficult duet with a living material, replacing the digital clock with the unpredictable, heavy momentum of shattered stone.
         </div>
 
         <div class="faceplate-wrap">
@@ -368,7 +355,7 @@
             </div>
 
             <div class="section-block">
-                <span class="section-tag" style="color: var(--kamen);">I. INVOCATION & OFFERING</span>
+                <span class="section-tag" style="color: var(--kamen);">I. INVOCATION (Weight & Momentum)</span>
                 <div class="param-row">
                     <span class="param-name">Liturgy</span>
                     <span class="param-desc">Acts as the fundamental vocal cord, sweeping the main physical resonator from deep, subterranean rumbles up to piercing frequencies with the precision of an analog oscillator.</span>
@@ -381,21 +368,25 @@
                     <span class="param-name">Offer</span>
                     <span class="param-desc">Replaces the metronome with a physics-based bouncing ball generator, dropping unpredictable, rolling clusters of strikes that mathematically accelerate into skittering flutters before resetting.</span>
                 </div>
+            </div>
+
+            <div class="section-block">
+                <span class="section-tag" style="color: var(--kamen);">II. THE MATERIAL (Stiffness & Form)</span>
                 <div class="param-row">
                     <span class="param-name">Tithe</span>
-                    <span class="param-desc">Acts as the master material sculptor, dynamically restructuring the acoustic geometry of the waveguides. Sweeping the dial seamlessly stretches pure glass harmonics into the dense inharmonicity of an iron bell.</span>
+                    <span class="param-desc">Acts as the master material sculptor, dynamically restructuring the acoustic geometry of the waveguides. Sweeping the dial seamlessly stretches the pure, glass-like harmonics of a pristine string into the dense, stiff, clanging inharmonicity of a massive iron bell, applying deep geometric saturation and high-frequency absorption.</span>
                 </div>
             </div>
 
             <div class="section-block">
-                <span class="section-tag" style="color: var(--kamen);">II. SANCTUARY & PENANCE</span>
+                <span class="section-tag" style="color: var(--kamen);">III. SANCTUARY (The Amber & The Ruin)</span>
                 <div class="param-row">
                     <span class="param-name">Cella</span>
-                    <span class="param-desc">Instantly locks the delay architecture, trapping current acoustic momentum while dynamically choking internal feedback valves.</span>
+                    <span class="param-desc">Instantly locks the delay architecture, trapping the current acoustic momentum in a frozen loop while dynamically choking internal feedback valves.</span>
                 </div>
                 <div class="param-row">
                     <span class="param-name">Origin</span>
-                    <span class="param-desc">Dictates architectural ruin, introducing brutal digital wavefolding, tape rot, and savage pitch-tearing on tape jumps.</span>
+                    <span class="param-desc">Dictates the architectural ruin of the Sanctuary, introducing brutal digital wavefolding, tape rot, and savage pitch-tearing on tape jumps.</span>
                 </div>
                 <div class="param-row">
                     <span class="param-name">Penance</span>
@@ -408,18 +399,18 @@
             </div>
 
             <div class="section-block">
-                <span class="section-tag" style="color: var(--kamen);">III. FAKTURA (Space & Bounding)</span>
+                <span class="section-tag" style="color: var(--kamen);">IV. FAKTURA (Space & Bounding)</span>
                 <div class="param-row">
                     <span class="param-name">Kigal</span>
-                    <span class="param-desc">Blasts a massive, heavily saturated sub-harmonic foundation exactly one octave below the main stone, anchoring high-frequency transients.</span>
-                </div>
-                <div class="param-row">
-                    <span class="param-name">Skol</span>
-                    <span class="param-desc">Applies a stacked Schroeder diffusion network that melts distinct echoes into a dense, washed-out cloud of reverberant fog.</span>
+                    <span class="param-desc">Blasts a massive, heavily saturated sub-harmonic foundation exactly one octave below the main stone, anchoring the high-frequency transients.</span>
                 </div>
                 <div class="param-row">
                     <span class="param-name">Kur</span>
                     <span class="param-desc">Expands the delay architecture from tight metallic reflections into a massive, echoing canyon.</span>
+                </div>
+                <div class="param-row">
+                    <span class="param-name">Skol</span>
+                    <span class="param-desc">Applies a stacked Schroeder diffusion network that melts distinct echoes into a dense, washed-out cloud of reverberant fog.</span>
                 </div>
             </div>
         </div>
@@ -444,7 +435,7 @@
 
         <div class="blueprint-spec">
             <div class="section-block">
-                <span class="section-tag" style="color: var(--mnemosyne);">SYSTEM</span>
+                <span class="section-tag" style="color: var(--mnemosyne);">TRACE (Capture & Sabotage)</span>
                 <div class="param-row">
                     <span class="param-name">Trace Toggle</span>
                     <span class="param-desc">The performance catalyst; it instantly freezes a 2-second block of live audio to act as the structural raw material.</span>
@@ -453,21 +444,13 @@
                     <span class="param-name">Fault</span>
                     <span class="param-desc">Actively sabotages the grid, either pulling the sequence into polyrhythmic phase-drift or violently fracturing it with Euclidean dropouts and mathematical silence.</span>
                 </div>
-                <div class="param-row">
-                    <span class="param-name">Seep</span>
-                    <span class="param-desc">Saves continuous seepage metrics controlling bleed levels passing into structural blocks.</span>
-                </div>
-                <div class="param-row">
-                    <span class="param-name">Andamento</span>
-                    <span class="param-desc">Coordinates the movement and flow of the fracture mosaic.</span>
-                </div>
             </div>
 
             <div class="section-block">
-                <span class="section-tag" style="color: var(--mnemosyne);">I. PATINA</span>
+                <span class="section-tag" style="color: var(--mnemosyne);">SUBSTRATE (Time & Weathering)</span>
                 <div class="param-row">
                     <span class="param-name">Cadence</span>
-                    <span class="param-desc">Controls the master clock, scaled musically so that dead-center retains the exact 1:1 original pitch, while sweeping pushes architecture into sub-octaves or crystalline highs.</span>
+                    <span class="param-desc">Controls the master clock, scaled musically so that dead-center retains the exact 1:1 original pitch, while sweeping the dial pushes the architecture into deep sub-octaves or crystalline highs.</span>
                 </div>
                 <div class="param-row">
                     <span class="param-name">Index</span>
@@ -484,18 +467,22 @@
             </div>
 
             <div class="section-block">
-                <span class="section-tag" style="color: var(--mnemosyne);">II. TESSELLATION (Mosaic)</span>
+                <span class="section-tag" style="color: var(--mnemosyne);">TESSELLATION (Mosaic)</span>
                 <div class="param-row">
-                    <span class="param-name">Block / Tile / Frag / Frit</span>
-                    <span class="param-desc">Govern hard-cut subdivisions (1/4 note, 1/8 note, 1/16 note, 1/32 note) reading from the exact same frozen trace to generate complex, interlocking IDM polyrhythms from a static source.</span>
+                    <span class="param-name">Block, Tile, Fragment, & Frit</span>
+                    <span class="param-desc">Block (1/4 note), Tile (1/8 note), Fragment (1/16 note), and Frit (1/32 note) govern hard-cut subdivisions. Because they read from the exact same frozen trace, they generate complex, interlocking IDM polyrhythms from a static source without pitch dissonance, building a new physical structure from the ruins.</span>
                 </div>
             </div>
 
             <div class="section-block">
-                <span class="section-tag" style="color: var(--mnemosyne);">III. DESCENT</span>
+                <span class="section-tag" style="color: var(--mnemosyne);">UNDERCURRENT (Chaos & Ghosts)</span>
                 <div class="param-row">
                     <span class="param-name">Undertow</span>
                     <span class="param-desc">Drags a heavy, half-speed reverse swell underneath the grid.</span>
+                </div>
+                <div class="param-row">
+                    <span class="param-name">Scatter</span>
+                    <span class="param-desc">Throws probability-gated granular dust across the stereo field, hiding a secret threshold: pushed past 95%, the chaos instantly snaps into a rigid, mathematically perfect 5/16 Euclidean lock.</span>
                 </div>
                 <div class="param-row">
                     <span class="param-name">Cantor</span>
@@ -505,16 +492,14 @@
                     <span class="param-name">Lethe</span>
                     <span class="param-desc">Swallows the entire output into a claustrophobic, dark low-pass Bucket Brigade delay pushed to the brink of wheezing self-oscillation.</span>
                 </div>
-                <div class="param-row">
-                    <span class="param-name">Scatter</span>
-                    <span class="param-desc">Throws probability-gated granular dust across the stereo field; pushed past 95%, it instantly snaps into a rigid, mathematically perfect 5/16 Euclidean lock.</span>
-                </div>
             </div>
         </div>
     </section>
 </main>
 
-<footer>SYSTEM BLUEPRINT // DESIGN REFERENCE 2026</footer>
+<footer>DECODING QUIET MACHINERY // 2026</footer>
 
 </body>
 </html>
+
+```
