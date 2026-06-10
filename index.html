@@ -7,76 +7,76 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;700&family=Roboto+Mono:wght@200;400&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* REFINED OXIDIZED PALETTE */
             --bg: #000; --text: #fff; --border: #222;
             --asperitas: #D4A373; /* Oxidized Sulphur */
-            --mnemosyne: #83938E; /* Weathered Mortar */
+            --orogen: #7B2C2C;    /* Iron Oxide */
             --kamen: #5E6472;     /* Cold Slate */
-            --karst: #7B2C2C;     /* Iron Oxide */
+            --mnemosyne: #83938E; /* Weathered Mortar */
         }
 
         body { 
             background: var(--bg); color: var(--text); 
-            font-family: 'Oswald', sans-serif; margin: 0; 
-            display: flex; flex-direction: column;
+            font-family: 'Oswald', sans-serif; margin: 0; padding-bottom: 240px;
+            display: flex; flex-direction: column; -webkit-tap-highlight-color: transparent;
         }
 
-        /* --- HUD SIDEBAR --- */
-        #sidebar {
-            position: fixed; right: 0; top: 0; width: 400px; height: 100vh;
-            background: rgba(5,5,5,0.95); border-left: 1px solid var(--border);
-            padding: 40px; box-sizing: border-box; z-index: 1000;
-            overflow-y: auto; font-family: 'Roboto+Mono', monospace;
+        /* --- SMARTPHONE STICKY HUD FOOTER --- */
+        #mobile-hud {
+            position: fixed; bottom: 0; left: 0; width: 100%; height: 220px;
+            background: rgba(5,5,5,0.98); border-top: 1px solid var(--border);
+            padding: 20px; box-sizing: border-box; z-index: 1000;
+            overflow-y: auto; font-family: 'Roboto Mono', monospace;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.8);
         }
 
-        .hud-label { font-size: 0.6rem; letter-spacing: 3px; opacity: 0.4; margin-bottom: 5px; text-transform: uppercase; }
-        .sidebar-title { font-family: 'Oswald'; font-size: 3rem; text-transform: uppercase; line-height: 0.9; margin-bottom: 40px; }
+        .hud-label { font-size: 0.55rem; letter-spacing: 2px; opacity: 0.4; margin-bottom: 3px; text-transform: uppercase; }
+        .hud-title { font-family: 'Oswald'; font-size: 1.8rem; text-transform: uppercase; line-height: 1; margin-bottom: 15px; transition: color 0.3s; }
         
-        .module-group { margin-bottom: 30px; border: 1px solid transparent; padding: 15px; transition: 0.3s; opacity: 0.2; }
-        .module-group.active { opacity: 1; border-color: #444; background: rgba(255,255,255,0.02); }
-        .module-name { font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: #888; display: block; margin-bottom: 10px; }
+        .module-group { display: none; }
+        .module-group.active { display: block; animation: fadeIn 0.3s ease-out; }
+        .module-name { font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; color: #888; display: block; margin-bottom: 8px; }
         
-        .param-entry { margin-bottom: 12px; }
-        .param-name { font-weight: 400; text-transform: uppercase; font-size: 0.9rem; color: var(--text); }
-        .param-text { font-weight: 200; font-size: 0.75rem; opacity: 0.6; line-height: 1.4; display: block; margin-top: 4px; }
+        .param-entry { margin-bottom: 10px; border-bottom: 1px solid #111; padding-bottom: 6px; }
+        .param-entry:last-child { border-bottom: none; }
+        .param-name { font-weight: 400; text-transform: uppercase; font-size: 0.8rem; color: var(--text); }
+        .param-text { font-weight: 200; font-size: 0.7rem; opacity: 0.6; line-height: 1.3; display: block; margin-top: 2px; }
 
-        /* --- MAIN CONTENT --- */
-        main { width: calc(100% - 400px); }
-
-        .engine-section { width: 100%; border-bottom: 1px solid var(--border); position: relative; padding-bottom: 100px; }
+        /* --- SCROLL CONTENT --- */
+        main { width: 100%; }
+        .engine-section { width: 100%; border-bottom: 1px solid var(--border); position: relative; padding-bottom: 40px; }
         
-        .hero-art { width: 100%; height: 50vh; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); }
-        .hero-art img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) brightness(30%); }
+        .hero-art { width: 100%; height: 35vh; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); }
+        .hero-art img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) brightness(25%); }
         
-        .poetry-box { position: absolute; bottom: 30px; left: 40px; max-width: 600px; border-left: 1px solid #444; padding-left: 25px; }
-        .poetry-box h2 { font-size: 4rem; margin: 0; letter-spacing: 12px; text-transform: uppercase; line-height: 1; }
-        .poetry-quote { font-style: italic; font-weight: 200; font-size: 1.4rem; margin: 10px 0; line-height: 1.3; }
-        .poetry-sub { font-size: 0.8rem; opacity: 0.4; max-width: 400px; line-height: 1.5; font-family: 'Roboto Mono', monospace; }
+        .poetry-box { position: absolute; bottom: 20px; left: 20px; right: 20px; border-left: 1px solid #444; padding-left: 15px; }
+        .poetry-box h2 { font-size: 2.5rem; margin: 0; letter-spacing: 6px; text-transform: uppercase; line-height: 1; }
+        .poetry-quote { font-style: italic; font-weight: 200; font-size: 1.05rem; margin: 8px 0; line-height: 1.25; }
+        .poetry-sub { font-size: 0.7rem; opacity: 0.4; line-height: 1.4; font-family: 'Roboto Mono', monospace; }
 
-        .faceplate-wrap { position: relative; max-width: 1100px; margin: 60px auto; border: 1px solid #1a1a1a; padding: 15px; }
+        .faceplate-wrap { position: relative; width: calc(100% - 20px); max-width: 1200px; margin: 30px auto; border: 1px solid #1a1a1a; background: #000; }
         .faceplate-wrap img { width: 100%; display: block; }
 
-        /* Trigger Grid */
+        /* Smartphone Touch Grid Overlay */
         .trigger-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; }
-        .trigger-col { flex: 1; cursor: crosshair; }
+        .trigger-col { flex: 1; cursor: pointer; }
+        .trigger-col:active { background: rgba(255,255,255,0.05); }
 
-        /* --- MOBILE RESPONSIVENESS --- */
-        @media (max-width: 1024px) {
-            main { width: 100%; }
-            #sidebar { position: static; width: 100%; height: auto; border-left: none; border-top: 1px solid var(--border); }
-            .poetry-box h2 { font-size: 2.5rem; letter-spacing: 5px; }
-            .hero-art { height: 40vh; }
+        footer { padding: 40px 20px; text-align: center; opacity: 0.15; font-size: 0.55rem; letter-spacing: 4px; font-family: 'Roboto Mono', monospace; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        footer { padding: 80px; text-align: center; opacity: 0.1; font-size: 0.6rem; letter-spacing: 10px; font-family: 'Roboto Mono', monospace; }
     </style>
 </head>
 <body>
 
-<div id="sidebar">
-    <div class="hud-label">System Architecture // Decryption</div>
-    <div class="sidebar-title" id="side-title">Initialize</div>
-    <div id="side-params"></div>
+<div id="mobile-hud">
+    <div class="hud-label">Interactive Architecture // Tap UI Columns To Decrypt</div>
+    <div class="hud-title" id="hud-title">INITIALIZE SYSTEM</div>
+    <div id="hud-params">
+        <p style="font-size: 0.75rem; opacity: 0.4; margin: 0; font-weight: 200;">Select any control module on the instruments above to decode structural parameters.</p>
+    </div>
 </div>
 
 <main>
@@ -85,41 +85,43 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Caspar_David_Friedrich_-_The_Abbey_in_the_Oakwood_-_WGA08240.jpg">
             <div class="poetry-box">
                 <h2 style="color:var(--asperitas)">ASPERITAS</h2>
-                <div class="poetry-quote">"A sound, once struck, belongs to the elements."</div>
-                <div class="poetry-sub">Surrenders artifacts to erosion. High frequencies rust. Structural attacks blur into breathing phase swells.</div>
+                <div class="poetry-quote">"A sound, once struck, belongs to the elements. Asperitas is the weather."</div>
+                <div class="poetry-sub">A granular delay and looping environment designed to capture complex transients and subject them to gradual, organic decay.</div>
             </div>
         </div>
         <div class="faceplate-wrap">
             <img src="asperitas_face.png">
             <div class="trigger-grid">
-                <div style="flex:0.1"></div>
-                <div class="trigger-col" onmouseover="act(0)" onmouseout="dact()"></div>
-                <div class="trigger-col" onmouseover="act(1)" onmouseout="dact()"></div>
-                <div class="trigger-col" onmouseover="act(2)" onmouseout="dact()"></div>
-                <div class="trigger-col" onmouseover="act(3)" onmouseout="dact()"></div>
-                <div style="flex:0.1"></div>
+                <div style="flex:0.06"></div>
+                <div class="trigger-col" onclick="tapModule('ASPERITAS', 0)"></div>
+                <div class="trigger-col" onclick="tapModule('ASPERITAS', 1)"></div>
+                <div class="trigger-col" onclick="tapModule('ASPERITAS', 2)"></div>
+                <div class="trigger-col" onclick="tapModule('ASPERITAS', 3)"></div>
+                <div style="flex:0.06"></div>
             </div>
         </div>
     </section>
 
-    <section class="engine-section" data-engine="MNEMOSYNE" data-color="var(--mnemosyne)">
+    <section class="engine-section" data-engine="OROGEN" data-color="var(--orogen)">
         <div class="hero-art">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Plate_1-_Part_of_the_Forum_of_Nerva_%28Parte_del_Foro_di_Nerva%29_MET_DP827927.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/John_Martin_-_The_Great_Day_of_His_Wrath_-_Google_Art_Project.jpg">
             <div class="poetry-box">
-                <h2 style="color:var(--mnemosyne)">MNEMOSYNE</h2>
-                <div class="poetry-quote">"Memory is a ruin reconstructed from shattered pieces."</div>
-                <div class="poetry-sub">Casts audio in mortar. Architecture subjected to fault lines, temporal decay, and violent dropouts.</div>
+                <h2 style="color:var(--orogen)">OROGEN</h2>
+                <div class="poetry-quote">"Rhythm is born from friction. Orogen forces four asynchronous plates to grind against one another in the dark."</div>
+                <div class="poetry-sub">A rhythmic synthesis environment converting geological pressure into physical structures, built to actively resist and defamiliarize the grid.</div>
             </div>
         </div>
         <div class="faceplate-wrap">
-            <img src="mnemosyne_face.png">
+            <img src="karst_face.png">
             <div class="trigger-grid">
-                <div style="flex:0.1"></div>
-                <div class="trigger-col" onmouseover="act(0)" onmouseout="dact()"></div>
-                <div class="trigger-col" onmouseover="act(1)" onmouseout="dact()"></div>
-                <div class="trigger-col" onmouseover="act(2)" onmouseout="dact()"></div>
-                <div class="trigger-col" onmouseover="act(3)" onmouseout="dact()"></div>
-                <div style="flex:0.1"></div>
+                <div style="flex:0.05"></div>
+                <div class="trigger-col" onclick="tapModule('OROGEN', 0)"></div>
+                <div class="trigger-col" onclick="tapModule('OROGEN', 1)"></div>
+                <div class="trigger-col" onclick="tapModule('OROGEN', 2)"></div>
+                <div class="trigger-col" onclick="tapModule('OROGEN', 3)"></div>
+                <div class="trigger-col" onclick="tapModule('OROGEN', 4)"></div>
+                <div class="trigger-col" onclick="tapModule('OROGEN', 5)"></div>
+                <div style="flex:0.04"></div>
             </div>
         </div>
     </section>
@@ -129,102 +131,154 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Caspar_David_Friedrich_-_Cairn_in_Snow_-_Google_Art_Project.jpg">
             <div class="poetry-box">
                 <h2 style="color:var(--kamen)">KAMEN</h2>
-                <div class="poetry-quote">"The sanctuary of the grid, desecrated."</div>
-                <div class="poetry-sub">Understands the violence of incoming transients and the heavy, inertial sag of the stone.</div>
+                <div class="poetry-quote">"The sanctuary of the grid, desecrated by physical mass."</div>
+                <div class="poetry-sub">An autonomous physical modeling ecosystem designed to replace the sterile safety of the sequencer with the brutal, shifting reality of the acoustic stopwatch and shattered stone.</div>
             </div>
         </div>
         <div class="faceplate-wrap">
             <img src="kamen_face.png">
             <div class="trigger-grid">
-                <div style="flex:0.1"></div>
-                <div class="trigger-col" onmouseover="act(0)" onmouseout="dact()"></div>
-                <div class="trigger-col" onmouseover="act(1)" onmouseout="dact()"></div>
-                <div class="trigger-col" onmouseover="act(2)" onmouseout="dact()"></div>
-                <div class="trigger-col" onmouseover="act(3)" onmouseout="dact()"></div>
-                <div style="flex:0.1"></div>
+                <div style="flex:0.05"></div>
+                <div class="trigger-col" onclick="tapModule('KAMEN', 0)"></div>
+                <div class="trigger-col" onclick="tapModule('KAMEN', 1)"></div>
+                <div class="trigger-col" onclick="tapModule('KAMEN', 2)"></div>
+                <div class="trigger-col" onclick="tapModule('KAMEN', 3)"></div>
+                <div style="flex:0.05"></div>
             </div>
         </div>
     </section>
 
-    <section class="engine-section" data-engine="KARST" data-color="var(--karst)">
+    <section class="engine-section" data-engine="MNEMOSYNE" data-color="var(--mnemosyne)">
         <div class="hero-art">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/John_Martin_-_The_Great_Day_of_His_Wrath_-_Google_Art_Project.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Plate_1-_Part_of_the_Forum_of_Nerva_%28Parte_del_Foro_di_Nerva%29_MET_DP827927.jpg">
             <div class="poetry-box">
-                <h2 style="color:var(--karst)">KARST</h2>
-                <div class="poetry-quote">"Rhythm is born from friction."</div>
-                <div class="poetry-sub">Slow ritual of mountain-building. Mass accumulates in the mantle until pressure forces a metallic strike.</div>
+                <h2 style="color:var(--mnemosyne)">MNEMOSYNE</h2>
+                <div class="poetry-quote">"Memory is never retrieved whole; it is a ruin reconstructed from shattered pieces."</div>
+                <div class="poetry-sub">A live-capture rhythmic micro-slicer and mosaic environment, designed to cast suspended audio in mortar, fracture it into composed, rigid sequences, and bleed them into suffocating decay.</div>
             </div>
         </div>
         <div class="faceplate-wrap">
-            <img src="karst_face.png">
+            <img src="mnemosyne_face.png">
             <div class="trigger-grid">
-                <div style="flex:0.1"></div>
-                <div class="trigger-col" onmouseover="act(0)" onmouseout="dact()"></div>
-                <div class="trigger-col" onmouseover="act(1)" onmouseout="dact()"></div>
-                <div class="trigger-col" onmouseover="act(2)" onmouseout="dact()"></div>
-                <div class="trigger-col" onmouseover="act(3)" onmouseout="dact()"></div>
-                <div class="trigger-col" onmouseover="act(4)" onmouseout="dact()"></div>
-                <div class="trigger-col" onmouseover="act(5)" onmouseout="dact()"></div>
-                <div style="flex:0.1"></div>
+                <div style="flex:0.05"></div>
+                <div class="trigger-col" onclick="tapModule('MNEMOSYNE', 0)"></div>
+                <div class="trigger-col" onclick="tapModule('MNEMOSYNE', 1)"></div>
+                <div class="trigger-col" onclick="tapModule('MNEMOSYNE', 2)"></div>
+                <div class="trigger-col" onclick="tapModule('MNEMOSYNE', 3)"></div>
+                <div style="flex:0.05"></div>
             </div>
         </div>
     </section>
 </main>
 
-<footer>DECODING QUIET MACHINERY // ARCHIVE 2026</footer>
+<footer>DECODING QUIET MACHINERY // HARDWARE ARCHIVE 2026</footer>
 
 <script>
     const LEX = {
         ASPERITAS: [
-            {m: "SOURCE", p: [{n:"Sublimate", d:"1.2s swells."}, {n:"Amber I/II", d:"Capture buffers."}]},
-            {m: "WEATHERING", p: [{n:"Patina", d:"9.0x drive."}, {n:"Thicket", d:"LPF to 400Hz."}]},
-            {m: "THE DEEP", p: [{n:"Alembic", d:"Infinite reverb fog."}, {n:"Transmute", d:"Cascading delay."}]},
-            {m: "MACROS", p: [{n:"Ouroboros", d:"40% feedback."}, {n:"Entropy", d:"Random modulation."}]}
+            {m: "I. SOURCE (Ingestion & Capture)", p: [
+                {n:"Sublimate", d:"Strips hard transients with 1.2-second volume swells, softening the incoming attack."},
+                {n:"Amber I & Amber II", d:"Provide 2-second and 4-second click-free capture buffers to trap moments in time."},
+                {n:"Undertow", d:"Crossfades the playback between forward and reverse, disorienting the temporal flow."}
+            ]},
+            {m: "II. WEATHERING (Degradation & Friction)", p: [
+                {n:"Patina", d:"Dictates high-frequency signal loss and introduces heavy analog distortion (pushed up to 9.0x drive), causing frozen audio to progressively darken and saturate with each repetition."},
+                {n:"Thicket", d:"Acts as an oppressive low-pass filter, dragging the ceiling from 18kHz down to a suffocating 400Hz."},
+                {n:"Tide", d:"Splits the live signal to simulate massive, breathing phase swells that move across the stereo field."}
+            ]},
+            {m: "III. THE DEEP (Space & Time)", p: [
+                {n:"Alembic", d:"Controls a hard-capped infinite reverb tank, washing the signal into an impenetrable fog."},
+                {n:"Transmute", d:"Drags three cascading delay read-heads entirely off the rigid grid, forcing them into sprawling polyrhythms spanning up to 80,000 samples."},
+                {n:"Sway / Distill", d:"Sway introduces seasick, tape-like wow and flutter; Distill brick-walls the resulting chaotic echoes into a compressed, polished pad."}
+            ]},
+            {m: "IV. MACROS (Autonomous Sabotage)", p: [
+                {n:"Ouroboros", d:"Routes 40% of the spatial effect back into the weathering system, forcing the machine to endlessly eat its own tail."},
+                {n:"Entropy", d:"Utilizes a bipolar random voltage to actively modulate Thicket, Transmute, and Sway without user input, ensuring the environment remains unpredictable."}
+            ]}
         ],
-        MNEMOSYNE: [
-            {m: "SYSTEM", p: [{n:"Trace", d:"2s block freeze."}, {n:"Fault", d:"Euclidean dropouts."}]},
-            {m: "SUBSTRATE", p: [{n:"Cadence", d:"Pitch scale."}, {n:"Index", d:"Manual traversal."}]},
-            {m: "TESSELLATION", p: [{n:"Block/Tile", d:"Hard-cut rhythms."}, {n:"Frag/Frit", d:"IDM polyrhythms."}]},
-            {m: "UNDERCURRENT", p: [{n:"Scatter", d:"5/16 Euclidean lock."}, {n:"Lethe", d:"BBD oscillation."}]}
+        OROGEN: [
+            {m: "MOTORS (Asynchronous Drive)", p: [
+                {n:"Strata", d:"Scales the base frequency of the rhythmic generation."},
+                {n:"Shear", d:"Introduces microscopic, off-grid timing offsets that create organic push and pull."},
+                {n:"Erosion", d:"Utilizes a cubic-curve probability gate to violently dissolve the generated rhythms into quiet, skeletal, and unpredictable ticks."}
+            ]},
+            {m: "I. MANTLE & II. SHADOW (Tectonic Voices)", p: [
+                {n:"Mass", d:"Controls the fundamental weight and sub-frequency using sharp exponential curves."},
+                {n:"Matter", d:"Dictates the physical decay time and introduces sharp metallic resonance."}
+            ]},
+            {m: "III. FLINT & IV. APEX (Material Geometry)", p: [
+                {n:"Slip", d:"Allows for manual, unstepped offset phase-shifting."},
+                {n:"Fluid", d:"Overrides the percussive triggers entirely, forcing sharp strikes into unending, sustained drone states."}
+            ]},
+            {m: "FX/VOID (Atmosphere & Absence)", p: [
+                {n:"Bake", d:"Applies a non-linear analog warmth and hard limiting to the sum of the voices, gluing the tectonic strikes together."},
+                {n:"Ping", d:"Creates a stereo resonant reservoir that warbles and reacts directly in tandem with the Shear parameter."},
+                {n:"Void", d:"Swallows the entire structural output into a massive, lightless reverberation chamber, washing out strikes into a distant, tectonic rumble."}
+            ]}
         ],
         KAMEN: [
-            {m: "GLOBAL", p: [{n:"Altitude", d:"Spectral tilt."}, {n:"Incense", d:"Noise floor."}]},
-            {m: "INVOCATION", p: [{n:"Liturgy", d:"Wavefolding textures."}, {n:"Gravity", d:"Vactrol inertia."}]},
-            {m: "OFFERING", p: [{n:"Tithe", d:"Sample rate jitter."}, {n:"Offer", d:"Signal sacrifice."}]},
-            {m: "SANCTUARY", p: [{n:"Cella", d:"Sample stopwatch."}, {n:"Schism", d:"Phase-drift."}]}
+            {m: "GLOBAL (Atmosphere & Force)", p: [
+                {n:"Altitude", d:"Dictates the global spectral tilt by governing the tuning interval of a second, independent physical waveguide, sweeping from a sub-octave foundation up through dissonant overtones."},
+                {n:"Incense", d:"Introduces physical friction, quietly hissing at rest but violently sparking and shattering the exact millisecond the stone is struck."},
+                {n:"Velocity", d:"Governs the raw sensitivity and final driving force of the machine."}
+            ]},
+            {m: "I. INVOCATION (Weight & Momentum)", p: [
+                {n:"Liturgy", d:"Acts as the fundamental vocal cord, sweeping the main physical resonator from deep, subterranean rumbles up to piercing frequencies with the precision of an analog oscillator."},
+                {n:"Gravity", d:"Acts as a dynamic low-pass gate and envelope morph, dictating the physical mass of the strike and the damping of the stone—from massive, ringing boulders to dry percussive clicks and continuous bowed friction."},
+                {n:"Offer", d:"Replaces the metronome with a physics-based bouncing ball generator, dropping unpredictable, rolling clusters of strikes that mathematically accelerate into skittering flutters before resetting."}
+            ]},
+            {m: "II. THE MATERIAL & III. SANCTUARY", p: [
+                {n:"Tithe", d:"Acts as the master material sculptor, dynamically restructuring the acoustic geometry of the waveguides to stretch pure glass-like harmonics into dense iron inharmonicity."},
+                {n:"Cella", d:"Instantly locks the delay architecture, trapping current acoustic momentum while dynamically choking internal feedback valves."},
+                {n:"Origin", d:"Dictates architectural ruin, introducing brutal digital wavefolding, tape rot, and savage pitch-tearing on tape jumps."}
+            ]},
+            {m: "IV. PENANCE & FAKTURA", p: [
+                {n:"Penance / Schism", d:"Penance opens a volatile feedback valve for screaming harmonic loops; Schism splinters the path, forcing read-heads to spontaneously jump and tear across the tape."},
+                {n:"Kigal / Kur / Skol", d:"Kigal blasts a heavily saturated sub-harmonic foundation; Kur expands space into a massive canyon; Skol applies a stacked Schroeder diffusion network."}
+            ]}
         ],
-        KARST: [
-            {m: "MOTORS", p: [{n:"Strata/Shear", d:"Off-grid timing."}, {n:"Erosion", d:"Rhythm dissolution."}]},
-            {m: "MANTLE", p: [{n:"Tectonic Voice 1", d:"Sub-weight/Resonance."}]},
-            {m: "SHADOW", p: [{n:"Tectonic Voice 2", d:"Sub-weight/Resonance."}]},
-            {m: "FLINT", p: [{n:"Friction", d:"Asynchronous phasors."}]},
-            {m: "APEX", p: [{n:"Bake", d:"Analog glue."}]},
-            {m: "VOID", p: [{n:"Void", d:"massive reverb abyss."}]}
+        MNEMOSYNE: [
+            {m: "TRACE (Capture & Sabotage)", p: [
+                {n:"Trace toggle", d:"The performance catalyst; it instantly freezes a 2-second block of live audio to act as the structural raw material."},
+                {n:"Fault", d:"Actively sabotages the grid, either pulling the sequence into polyrhythmic phase-drift or violently fracturing it with Euclidean dropouts."}
+            ]},
+            {m: "SUBSTRATE (Time & Weathering)", p: [
+                {n:"Cadence", d:"Controls the master clock, scaled musically so that dead-center retains the exact 1:1 original pitch, while sweeping pushes architecture into sub-octaves or crystalline highs."},
+                {n:"Index", d:"Unbolts the read-heads, allowing manual, physical traversal to scrub across the frozen timeline."},
+                {n:"Erosion / Silica", d:"Erosion shortens transient decay tails into tight plucks; Silica subjects audio to extreme data-loss, sample-rate decimation, and zero-crossing errors."}
+            ]},
+            {m: "TESSELLATION (Mosaic)", p: [
+                {n:"Block / Tile / Fragment / Frit", d:"Govern hard-cut subdivisions (1/4, 1/8, 1/16, 1/32 notes) reading from the exact same frozen trace to generate complex, interlocking IDM polyrhythms."}
+            ]},
+            {m: "UNDERCURRENT (Chaos & Ghosts)", p: [
+                {n:"Undertow", d:"Drags a heavy, half-speed reverse swell underneath the grid."},
+                {n:"Scatter", d:"Throws probability-gated granular dust across the stereo field; past 95%, it instantly snaps into a rigid, mathematically perfect 5/16 Euclidean lock."},
+                {n:"Cantor / Lethe", d:"Cantor introduces a lonely sub-oscillator that FM-modulates against the mosaic; Lethe swallows the output into a claustrophobic, dark low-pass Bucket Brigade delay."}
+            ]}
         ]
     };
 
-    const sideTitle = document.getElementById('side-title'), sideParams = document.getElementById('side-params');
-    let cur = "";
+    const hudTitle = document.getElementById('hud-title'), hudParams = document.getElementById('hud-params');
 
-    function loadSide(engine) {
-        if (cur === engine) return; cur = engine;
-        sideTitle.innerText = engine;
-        sideTitle.style.color = document.querySelector(`[data-engine="${engine}"]`).dataset.color;
-        sideParams.innerHTML = LEX[engine].map((m, i) => `
-            <div class="module-group" id="mod-${i}">
-                <span class="module-name">${m.m}</span>
-                ${m.p.map(p => `<div class="param-entry"><span class="param-name">${p.n}</span><span class="param-text">${p.d}</span></div>`).join('')}
+    function tapModule(engine, groupIndex) {
+        const dataColor = document.querySelector(`[data-engine="${engine}"]`).dataset.color;
+        const targetGroup = LEX[engine][groupIndex];
+        
+        hudTitle.innerText = engine;
+        hudTitle.style.color = dataColor;
+        
+        hudParams.innerHTML = `
+            <div class="module-group active">
+                <span class="module-name" style="color: ${dataColor}">${targetGroup.m}</span>
+                ${targetGroup.p.map(p => `
+                    <div class="param-entry">
+                        <span class="param-name">${p.n}</span>
+                        <span class="param-text">${p.d}</span>
+                    </div>
+                `).join('')}
             </div>
-        `).join('');
+        `;
     }
-
-    function act(i) { document.getElementById(`mod-${i}`)?.classList.add('active'); }
-    function dact() { document.querySelectorAll('.module-group').forEach(e => e.classList.remove('active')); }
-
-    const observer = new IntersectionObserver((es) => {
-        es.forEach(e => { if (e.isIntersecting) loadSide(e.target.dataset.engine); });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.engine-section').forEach(s => observer.observe(s));
 </script>
 
 </body>
